@@ -1,0 +1,38 @@
+micronaut:
+  application:
+    name: demo-app
+  server:
+    port: 8081
+
+datasources:
+  default:
+    dialect: MYSQL
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    read-only: false
+    schema-generate: NONE
+    auto-commit: false
+
+jpa:
+  default:
+    compile-time-hibernate-proxies: true
+    entity-scan:
+      packages: com.example
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        globally_quoted_identifiers: true
+        globally_quoted_identifiers_skip_column_definitions: true
+        #        generate_statistics: true
+        jdbc:
+          batch_size: 100
+          time_zone: America/Sao_Paulo
+          order_inserts: true
+          order_updates: true
+        show_sql: true
+        connection:
+          provider_disables_autocommit: true
+        flushMode: MANUAL
