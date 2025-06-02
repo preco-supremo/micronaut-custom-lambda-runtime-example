@@ -1,4 +1,4 @@
-##
+## Micronaut using GraalVM native image with Hibernate for AWS Lambda Custom Runtime example
 
 1. Build native image
 
